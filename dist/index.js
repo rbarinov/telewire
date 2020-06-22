@@ -36806,10 +36806,8 @@ Issue Comment: ${process.env.INPUT_IU_COM}
 `
         case "pull_request":
             return `
-⚠️ [PR ${prstate}](https://github.com/${repo}/pull/${pnum}))
-PR Number:      ${pnum}
+⚠️ [PR ${prstate}](https://github.com/${repo}/pull/${pnum})
 PR Title:       ${ptitle}
-PR Body:        *${pbody}*
 PR By:          ${ghactor}
 `
         case "watch":
@@ -36843,10 +36841,9 @@ Run *${ipstatus}!*
         default:
             return `
 ⚠️ ID: ${ghwrkflw}
-Action was a *${ipstatus}!*
 By:            *${ghactor}* 
 Tag:        ${process.env.GITHUB_REF}
-[Link to Repo ](https://github.com/${repo}/)
+[Repository](https://github.com/${repo}/)
 `
     }
 }
