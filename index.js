@@ -26,53 +26,27 @@ const evresp = (gevent) => {
 
         case "issues":
             return `
-❗️❗️❗️❗️❗️❗️
-        
-Issue ${prstate}
-
+⚠️ [Issue ${prstate}](https://github.com/${repo}/issues/${inum})
 Issue Title and Number  : ${ititle} | #${inum}
-
-Commented or Created By : \`${iactor}\`
-
+Commented or Created By : ${iactor}
 Issue Body : *${ibody}*
-
-[Link to Issue](https://github.com/${repo}/issues/${inum})
-[Link to Repo ](https://github.com/${repo}/)
-[Build log here](https://github.com/${repo}/commit/${sha}/checks)`
+`
         case "issue_comment":
             return `
-🗣🗣🗣🗣🗣🗣
-
-Issue ${prstate}
-
+⚠️ [Issue ${prstate}](https://github.com/${repo}/issues/${inum})
 Issue Title and Number  : ${ititle} | #${inum}
-
-Commented or Created By : \`${iactor}\`
-
+Commented or Created By : ${iactor}
 Issue Body : *${ibody}*
-
-Issue Comment: \`${process.env.INPUT_IU_COM}\`
-
-[Link to Issue](https://github.com/${repo}/issues/${inum})
-[Link to Repo ](https://github.com/${repo}/)
-[Build log here](https://github.com/${repo}/commit/${sha}/checks)
-            `
+Issue Comment: ${process.env.INPUT_IU_COM}
+`
         case "pull_request":
             return `
-🔃🔀🔃🔀🔃🔀
-PR ${prstate} 
-        
+⚠️ [PR ${prstate}](https://github.com/${repo}/pull/${pnum}))
 PR Number:      ${pnum}
-        
 PR Title:       ${ptitle}
-        
 PR Body:        *${pbody}*
-        
 PR By:          ${ghactor}
-        
-[Link to Issue](https://github.com/${repo}/pull/${pnum})
-[Link to Repo ](https://github.com/${repo}/)
-[Build log here](https://github.com/${repo}/commit/${sha}/checks)`
+`
         case "watch":
             return `
 ⭐️⭐️⭐️
@@ -103,22 +77,12 @@ Run *${ipstatus}!*
             `
         default:
             return `
-⬆️⇅⬆️⇅
-            
-ID: ${ghwrkflw}
-        
+⚠️ ID: ${ghwrkflw}
 Action was a *${ipstatus}!*
-        
-\`Repository:  ${repo}\` 
-        
-On:          *${ghevent}*
-        
 By:            *${ghactor}* 
-        
 Tag:        ${process.env.GITHUB_REF}
-        
 [Link to Repo ](https://github.com/${repo}/)
-            `
+`
     }
 }
 const output = evresp(ghevent)
